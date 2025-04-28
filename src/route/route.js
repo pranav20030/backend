@@ -8,6 +8,8 @@ import { VerifyToken } from "../middleware.js/authMiddleware.js";
 route.get("/sign-up",validation.user.signupValidation,errorResponse,operation.signup);
 
 route.post("/login",validation.user.loginValidation,errorResponse, operation.login);
+route.post("/otp-verification", operation.otpVerification);
+
 
 route.get("/userList",VerifyToken, operation.userList);
 

@@ -12,7 +12,7 @@ export const signupValidation = [
     .withMessage("Invalid email")
     .custom(async(value) => {
       const find = await User.findOne({email:value})
-      if(find){
+      if(find.isVerified){
         throw new Error("Email already Exist");
       }
     }),
